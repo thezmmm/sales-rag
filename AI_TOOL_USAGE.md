@@ -28,19 +28,19 @@ Course: Data Warehousing and Business Intelligence — University of Helsinki
 
 ---
 
-### Entry 002 — 
+### Entry 002 — Data loading (`loader.py`)
 
-- **Tool**:
-- **Description**:
-- **Student Contribution**:
+- **Tool**: Claude Sonnet 4.6
+- **Description**: Generated `loader.py` to load and clean the Superstore CSV — date parsing, column standardization, dtype enforcement
+- **Student Contribution**: Specified which columns needed parsing and what clean output format downstream code required
 
 ---
 
-### Entry 003 — 
+### Entry 003 — Data processing (`text_converter.py`, `chunker.py`)
 
-- **Tool**:
-- **Description**:
-- **Student Contribution**:
+- **Tool**: Claude Sonnet 4.6
+- **Description**: AI implemented text conversion (transaction sentences, monthly/annual/seasonal summaries, cross-dimension aggregations) and chunking (character-level split with overlap, three sizes: 500 / 1000 / 2000 chars)
+- **Student Contribution**: Designed the document taxonomy and dimension combinations needed for the analysis questions; decided to separate transaction docs from summary docs; chose chunk sizes and overlap strategy
 
 ---
 
