@@ -44,6 +44,22 @@ Course: Data Warehousing and Business Intelligence — University of Helsinki
 
 ---
 
+### Entry 004 — Vector database setup (`store.py`, `build_index.py`)
+
+- **Tool**: Claude Sonnet 4.6
+- **Description**: AI explained ChromaDB concepts (collections, embedding functions, upsert, metadata filtering, distance metrics) and helped set up `store.py` (client initialization, two-collection design, batch upsert, similarity search with `where` filters) and `build_index.py` (end-to-end index building script with progress output and smoke test)
+- **Student Contribution**: Learned how vector databases work through the conversation; decided on the two-collection architecture (transactions vs summaries); understood the ChromaDB filter syntax and how metadata fields enable filtered retrieval
+
+---
+
+### Entry 005 — Retrieval test (`retrieval_test.py`)
+
+- **Tool**: Claude Sonnet 4.6
+- **Description**: AI wrote `retrieval_test.py` with 13 test queries covering all four required analysis categories (trend, category, regional, comparative) plus transaction-level retrieval; outputs ranked results with distance scores and relevance labels
+- **Student Contribution**: Defined the test cases based on the assignment's required analysis questions; evaluated whether retrieved results were semantically correct
+
+---
+
 <!-- Copy the entry block above to add more entries -->
 
 
