@@ -60,6 +60,16 @@ Course: Data Warehousing and Business Intelligence — University of Helsinki
 
 ---
 
+### Entry 006 — Embedding model comparison (`compare_embeddings.py`, `docs/embedding_comparison.md`)
+
+- **Tool**: Claude Sonnet 4.6
+- **Description**: AI wrote `compare_embeddings.py` to benchmark four candidate embedding models by building a full ChromaDB index for each, running all 13 retrieval test cases, and generating a Markdown report with per-query distance tables and divergence analysis. Models tested: `all-MiniLM-L6-v2` (baseline), `multi-qa-MiniLM-L6-cos-v1`, `all-mpnet-base-v2`, `BAAI/bge-small-en-v1.5`.
+- **Problems encountered**: `all-mpnet-base-v2` took 574s to index on CPU (5× slower than baseline); `bge-small-en-v1.5` required a first-time model download from HuggingFace.
+- **Running results**: All 4 models achieved 13/13 HIGH relevance. `bge-small-en-v1.5` achieved the best avg top-1 cosine distance (0.1796), outperforming even the 3.3× larger `mpnet-base-v2` (0.2656). Production model updated accordingly.
+- **Student Contribution**: Decided which models to include; interpreted per-query divergence results; made the final model selection based on the quality/speed tradeoff
+
+---
+
 <!-- Copy the entry block above to add more entries -->
 
 
@@ -75,6 +85,7 @@ Beyond AI-generated code, the following work was done independently:
 - [ ] Testing and evaluation of RAG output quality
 - [ ] Interpretation of analysis results
 - [ ] Writing the technical report
+- [x] Retrieval quality optimization — identified semantic gaps between query language and document text (e.g. "revenue" vs "sales", "trend" vs "annual summary"); designed and added targeted summary documents; rewrote annual summary text to surface year-over-year trend intent; validated that retrieved documents actually answered the intended analytical questions
 
 ---
 
