@@ -70,6 +70,14 @@ Course: Data Warehousing and Business Intelligence — University of Helsinki
 
 ---
 
+### Entry 007 — RAG pipeline (`src/rag/tools.py`, `src/rag/pipeline.py`, `src/rag/demo.py`, `src/rag/app.py`)
+
+- **Tool**: Claude Sonnet 4.6
+- **Description**: AI assisted in implementing the full RAG pipeline. `tools.py` defines two retrieval tools (`search_summaries`, `search_transactions`) as first-class objects carrying both a callable implementation and a JSON Schema, so they can be invoked either by the pipeline directly or handed to the LLM as function-calling schemas. `pipeline.py` implements two operating modes: **direct** (pipeline calls both tools, builds a two-section context, calls LLM once) and **agent** (LLM receives tool schemas and drives retrieval via an agentic tool-call loop). `demo.py` runs 10 predefined analysis queries across the four required categories. `app.py` provides a Streamlit chat UI with sidebar mode selector and metadata filters.
+- **Student Contribution**: Designed the overall RAG pipeline flow — query routing logic, the two-collection retrieval strategy, and the decision to structure tools as first-class objects to support future LLM-driven retrieval. Specified that the pipeline should support both a deterministic direct mode and an agentic mode where the model controls tool invocation. Directed iterative refinements to the context structure and tool schema descriptions.
+
+---
+
 <!-- Copy the entry block above to add more entries -->
 
 
