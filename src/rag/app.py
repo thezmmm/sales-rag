@@ -274,18 +274,35 @@ def _sidebar() -> tuple[dict | None, bool]:
 
         st.divider()
         st.subheader("Example questions")
-        for ex in [
-            "What is the sales trend from 2014 to 2017?",
-            "Which season has the highest sales?",
-            "Which category generates the most revenue?",
-            "Which sub-categories have the highest profit margins?",
-            "Which region performs best in terms of profit?",
-            "Compare Technology and Furniture sales trends.",
-            "How do West and East regions compare in profit?",
-        ]:
-            if st.button(ex, use_container_width=True):
-                st.session_state.prefill = ex
-                st.rerun()
+
+        EXAMPLES = {
+            "Trend": [
+                "What is the sales trend over the 4-year period?",
+                "Which months show the highest sales? Is there seasonality?",
+                "How has profit margin changed over time?",
+            ],
+            "Category": [
+                "Which product category generates the most revenue?",
+                "What sub-categories have the highest profit margins?",
+                "Which products are frequently sold at a discount?",
+            ],
+            "Regional": [
+                "Which region has the best sales performance?",
+                "Compare sales performance across different states.",
+                "Which cities are the top performers?",
+            ],
+            "Comparative": [
+                "Compare Technology vs. Furniture sales trends.",
+                "How does the West region compare to the East in terms of profit?",
+            ],
+        }
+
+        for group, questions in EXAMPLES.items():
+            st.caption(group)
+            for ex in questions:
+                if st.button(ex, use_container_width=True):
+                    st.session_state.prefill = ex
+                    st.rerun()
 
     return where, show_sources
 
