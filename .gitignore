@@ -47,7 +47,6 @@ huggingface/
 
 # Environment variables
 .env
-.env.*
 
 # IDE
 .idea/
